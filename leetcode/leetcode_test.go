@@ -6,9 +6,9 @@ import (
 )
 
 func TestLeetCode(t *testing.T) {
-	s := "ADOBECODEBANC"
-	t1 := "ABC"
+	s := "adc"
+	s2 := "dcda"
 	//window := minWindow(s, t1)
-	window := minWindow2(s, t1)
+	window := checkInclusion(s, s2)
 	fmt.Println(window)
 }
