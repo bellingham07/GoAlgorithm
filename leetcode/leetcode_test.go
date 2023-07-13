@@ -6,9 +6,9 @@ import (
 )
 
 func TestLeetCode(t *testing.T) {
-	s := "adc"
-	s2 := "dcda"
+	s := "acdcaeccde"
+	p := "c"
 	//window := minWindow(s, t1)
-	window := checkInclusion(s, s2)
+	window := findAnagrams(s, p)
 	fmt.Println(window)
 }
