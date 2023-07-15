@@ -6,9 +6,9 @@ import (
 )
 
 func TestLeetCode(t *testing.T) {
-	s := "acdcaeccde"
-	p := "c"
-	//window := minWindow(s, t1)
-	window := findAnagrams(s, p)
-	fmt.Println(window)
+	fmt.Println("start")
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	defer fmt.Println(3)
+	fmt.Println("end")
 }
