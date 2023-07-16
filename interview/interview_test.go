@@ -7,9 +7,11 @@ import (
 
 func TestInterview(t *testing.T) {
 
-	a1 := []int{4, 9}
-	//a1 := []int{9, 9, 9, 9}
-	a2 := []int{1}
-	ints := add(a1, a2)
-	fmt.Println(ints)
+	total := 0
+	for i := 0; i < 101; i++ {
+		if i%2 == 0 {
+			total += i
+		}
+	}
+	fmt.Println(total)
 }
