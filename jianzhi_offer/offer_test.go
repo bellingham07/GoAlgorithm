@@ -1,12 +1,15 @@
 package offer
 
 import (
+	"fmt"
 	"strconv"
 	"testing"
 )
 
 func TestOffer(t *testing.T) {
-
+	arr := []int{7, 1, 5, 3, 6, 4}
+	profit := maxProfit(arr)
+	fmt.Println(profit)
 }
 
 func addStrings(num1 string, num2 string) string {
