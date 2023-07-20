@@ -7,9 +7,10 @@ import (
 )
 
 func TestOffer(t *testing.T) {
-	arr := []int{7, 1, 5, 3, 6, 4}
-	profit := maxProfit(arr)
-	fmt.Println(profit)
+	//arr := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}
+	arr := [][]int{{6, 9, 7}}
+	order := spiralOrder(arr)
+	fmt.Println(order)
 }
 
 func addStrings(num1 string, num2 string) string {

@@ -1,12 +1,14 @@
 package leetcode
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestLeetCode(t *testing.T) {
-	arr := []int{7, 1, 5, 3, 6, 4}
-	profit := maxProfit(arr)
-	fmt.Println(profit)
+	obj := Constructor()
+	param_1 := obj.Get(5)
+	obj.AddAtHead(1)
+	obj.AddAtTail(6)
+	obj.AddAtIndex(3, 5)
+	obj.DeleteAtIndex(3)
 }
