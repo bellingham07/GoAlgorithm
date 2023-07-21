@@ -56,6 +56,39 @@ func findMaxValueOfEquation(points [][]int, k int) int {
 	return maxValue
 }
 
+func findMaxValueOfEquation4(points [][]int, k int) int {
+	var left, right int
+	res := -math.MaxInt
+	for right < len(points) {
+		if left >= right {
+			right++
+			continue
+		}
+		//寻找xj-xi<=k
+		if points[right][0]-points[left][0] > k {
+			//left剔除，缩小窗口
+			left++
+			continue
+		}
+		//find max = yi+yj+xj-xi
+		res = max3(res, points[left][1]+points[right][1]+points[right][0]-points[left][0])
+		// yi2-xi2>yi1-xi1
+		if points[right][1]-points[right][0] > points[left][1]-points[left][0] {
+			//说明right后面可能会有更大
+			left++
+			continue
+		}
+		right++
+	}
+	return res
+}
+func max3(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
 func findMaxValueOfEquation3(points [][]int, k int) int {
 	res := -0x3f3f3f3f
 	q := [][]int{}
@@ -65,7 +98,7 @@ func findMaxValueOfEquation3(points [][]int, k int) int {
 			q = q[1:]
 		}
 		if len(q) > 0 {
-			res = max(res, x+y+q[0][0])
+			res = max2(res, x+y+q[0][0])
 		}
 		for len(q) > 0 && y-x >= q[len(q)-1][0] {
 			q = q[:len(q)-1]
