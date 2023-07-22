@@ -14,25 +14,17 @@ func TestLeetCode(t *testing.T) {
 	//k := 498
 	//fmt.Println(findMaxValueOfEquation4(points, k))
 
-	a1 := []int{2, 4, 3}
-	a2 := []int{5, 6, 4}
-	l1 := &ListNode{}
-	l2 := &ListNode{}
-
-	p1 := l1
-	p2 := l2
-	for i := 0; i < len(a1); i++ {
-		p1.Next = &ListNode{Val: a1[i]}
-		p2.Next = &ListNode{Val: a2[i]}
-		p1 = p1.Next
-		p2 = p2.Next
+	a := []int{1, 2, 3, 4}
+	m := map[int]int{}
+	for i := 0; i < len(a); i++ {
+		m[a[i]]++
 	}
-
-	fmt.Println(l1)
-	fmt.Println(addTwoNumbers(l1.Next, l2.Next))
-	t1 := addTwoNumbers(l1.Next, l2.Next)
-	for t1 != nil {
-		fmt.Println(t1.Val)
-		t1 = t1.Next
+	if _, ok := m[2]; ok {
+		fmt.Println("1")
+	}
+	m[2]--
+	fmt.Println(m)
+	if _, ok := m[5]; ok {
+		fmt.Println("1")
 	}
 }
