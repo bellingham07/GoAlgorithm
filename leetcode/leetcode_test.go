@@ -14,17 +14,5 @@ func TestLeetCode(t *testing.T) {
 	//k := 498
 	//fmt.Println(findMaxValueOfEquation4(points, k))
 
-	a := []int{1, 2, 3, 4}
-	m := map[int]int{}
-	for i := 0; i < len(a); i++ {
-		m[a[i]]++
-	}
-	if _, ok := m[2]; ok {
-		fmt.Println("1")
-	}
-	m[2]--
-	fmt.Println(m)
-	if _, ok := m[5]; ok {
-		fmt.Println("1")
-	}
+	fmt.Println(reverseWords("the sky is blue"))
 }
