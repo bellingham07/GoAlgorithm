@@ -14,5 +14,6 @@ func TestLeetCode(t *testing.T) {
 	//k := 498
 	//fmt.Println(findMaxValueOfEquation4(points, k))
 
-	fmt.Println(reverseWords("the sky is blue"))
+	a := []int{1, 1, 2, 1, 1}
+	fmt.Println(numberOfSubarrays(a, 3))
 }
