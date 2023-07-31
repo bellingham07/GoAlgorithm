@@ -1,20 +1,46 @@
 package interview
 
 import (
-	"fmt"
 	"strconv"
-	"testing"
 )
 
-func TestInterview(t *testing.T) {
-	num1 := "123456789012345678901234567890"
-	num2 := "987654321098765432109876543210"
-	sum := addBigNumbers(num1, num2)
-	fmt.Println("Sums:", sum)
-	fmt.Println("Suma:", bigNumSum(num1, num2))
+//num1 := "123456789012345678901234567890"
+//num2 := "987654321098765432109876543210"
+//sum := addBigNumbers(num1, num2)
+//fmt.Println("Sums:", sum)
+//fmt.Println("Suma:", bigNumSum(num1, num2))
+
+func bigNumSum(num1, num2 string) string {
+	if len(num1) < len(num2) {
+		num1, num2 = num2, num1
+	}
+
+	for i := len(num2); i < len(num1); i++ {
+		num2 = "0" + num2
+	}
+
+	carry := 0
+	sum := ""
+
+	//fmt.Println("num1", num1)
+	//fmt.Println("num2", num2)
+	for i := len(num1) - 1; i >= 0; i-- {
+		digtal1, _ := strconv.Atoi(string(num1[i]))
+		digtal2, _ := strconv.Atoi(string(num2[i]))
+
+		curSum := (digtal1+digtal2)%10 + carry
+		carry = (digtal1 + digtal2) / 10
+
+		sum = strconv.Itoa(curSum) + sum
+	}
+
+	if carry > 0 {
+		sum = strconv.Itoa(carry) + sum
+	}
+
+	return sum
 }
 
-// 大数相加函数
 func addBigNumbers(num1, num2 string) string {
 	// 确保num1是较长的字符串
 	if len(num1) < len(num2) {
