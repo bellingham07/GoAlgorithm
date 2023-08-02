@@ -6,7 +6,6 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	s := "abbaca"
-	duplicates := removeDuplicates(s)
-	fmt.Println(duplicates)
+
+	fmt.Println(maxSlidingWindow2(a, 26779))
 }
