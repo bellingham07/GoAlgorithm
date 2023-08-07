@@ -1,5 +1,7 @@
 package stack_and_queue
 
+import "container/list"
+
 func isValid(s string) bool {
 	hash := map[byte]byte{')': '(', ']': '[', '}': '{'}
 	stack := make([]byte, 0)
@@ -22,19 +24,27 @@ func isValid(s string) bool {
 	return len(stack) == 0
 }
 
-func ok(s string) bool {
-	m := map[byte]byte{')': '(', ']': '[', '}': '{'}
-	stack := make([]byte, 0)
-
-	for i := 0; i < len(s); i++ {
-		if s[i] == '(' || s[i] == '[' || s[i] == '{' {
-			stack = append(stack, s[i])
-		} else if len(stack) > 0 && stack[len(stack)-1] == m[s[i]] {
-			stack = stack[:len(stack)-1]
-		} else {
-			return false
+func isValid2(s string) bool {
+	l := list.New()
+	valid := map[any]rune{
+		'[': ']',
+		'{': '}',
+		'(': ')',
+	}
+	l.PushFront('?')
+	for _, str := range s {
+		l.PushBack(str)
+		if str == ']' || str == '}' || str == ')' {
+			if valid[l.Back().Prev().Value] != l.Back().Value {
+				return false
+			} else {
+				l.Remove(l.Back())
+				l.Remove(l.Back())
+			}
 		}
 	}
-
-	return len(stack) == 0
+	if l.Len() > 1 {
+		return false
+	}
+	return true
 }
