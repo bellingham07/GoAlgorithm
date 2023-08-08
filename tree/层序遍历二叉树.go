@@ -16,5 +16,9 @@ func levelOrder(root *TreeNode) [][]int {
 		order(root.Right, depth+1)
 	}
 	order(root, depth)
+	// 自底向上输出结果 反转数组就行
+	//for i := 0; i < len(arr)/2; i++ {
+	//	arr[i], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[i]
+	//}
 	return arr
 }
