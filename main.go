@@ -24,3 +24,20 @@ func main() {
 		fmt.Println(i)
 	}
 }
+
+func diagonalSum(mat [][]int) int {
+	sum := 0
+
+	for i := 0; i < len(mat); i++ {
+		sum += mat[i][i]
+	}
+	for i := 0; i < len(mat); i++ {
+		sum += mat[i][len(mat)-1-i]
+	}
+
+	if len(mat)%2 != 0 {
+		index := len(mat) / 2
+		sum -= mat[index][index]
+	}
+	return sum
+}
