@@ -13,9 +13,12 @@ func DFS(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	fmt.Printf("%d ", root.Val)
+
 	DFS(root.Left)
+
 	DFS(root.Right)
+	fmt.Printf("%d ", root.Val)
+
 }
 
 func BFS(root *TreeNode) {
