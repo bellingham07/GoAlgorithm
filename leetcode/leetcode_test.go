@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -13,7 +12,8 @@ func TestLeetCode(t *testing.T) {
 	////points := [][]int{{-15, -1}, {-14, -5}, {-11, 1}, {-9, 7}, {-8, 18}, {-7, -5}, {-3, 3}, {4, 14}, {12, -4}, {13, 15}, {14, -19}, {19, -1}}
 	//k := 498
 	//fmt.Println(findMaxValueOfEquation4(points, k))
-
-	a := []int{1, 1, 2, 1, 1}
-	fmt.Println(numberOfSubarrays(a, 3))
+	a := make([]int, 0, 6)
+	a = []int{1, 2, 3}
+	b := []int{2, 5, 6}
+	merge2(a, len(a), b, len(b))
 }
