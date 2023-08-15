@@ -1,19 +1,6 @@
-package main
+package leetcode
 
 import "fmt"
-
-func main() {
-	s := "abcde"
-	//
-	//ch := []byte(s)
-	//fmt.Println(string(ch[2]))
-
-	indexs := []int{2, 2}
-	sources := []string{"cdef", "bc"}
-	targes := []string{"f", "fe"}
-
-	fmt.Println(findReplaceString(s, indexs, sources, targes))
-}
 
 func findReplaceString(s string, indices []int, sources []string, targets []string) string {
 	ch := []byte(s)
