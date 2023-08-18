@@ -22,3 +22,21 @@ func levelOrder(root *TreeNode) [][]int {
 	//}
 	return arr
 }
+
+func levelOrder2(root *TreeNode) [][]int {
+	arr := [][]int{}
+	var order func(node *TreeNode, depth int)
+	order = func(node *TreeNode, depth int) {
+		if node == nil {
+			return
+		}
+		if len(arr) == depth {
+			arr = append(arr, []int{})
+		}
+		arr[depth] = append(arr[depth], node.Val)
+		order(node.Left, depth+1)
+		order(node.Right, depth+1)
+	}
+	order(root, 0)
+	return arr
+}

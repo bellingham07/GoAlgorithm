@@ -20,5 +20,5 @@ func TestTree(t *testing.T) {
 	root.Left.Left = NewNode(4)
 	root.Left.Right = NewNode(5)
 
-	fmt.Println(averageOfLevels(root))
+	fmt.Println(levelOrder2(root))
 }
