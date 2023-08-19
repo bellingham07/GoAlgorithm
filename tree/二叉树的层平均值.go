@@ -4,6 +4,7 @@ type data struct {
 	sum, count int
 }
 
+// dfs
 func averageOfLevels(root *TreeNode) []float64 {
 	res := []data{}
 	var dfs2 func(node *TreeNode, depth int)
@@ -31,6 +32,32 @@ func averageOfLevels(root *TreeNode) []float64 {
 
 	for i, d := range res {
 		ans[i] = float64(d.sum) / float64(d.count)
+	}
+
+	return ans
+}
+
+//bfs
+
+func averageOfLevels2(root *TreeNode) []float64 {
+	ans := []float64{}
+
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		l := len(queue)
+		sum := 0
+		for i := 0; i < l; i++ {
+			sum += queue[i].Val
+			if queue[i].Left != nil {
+				queue = append(queue, queue[i].Left)
+			}
+			if queue[i].Right != nil {
+				queue = append(queue, queue[i].Right)
+			}
+		}
+		num := float64(sum) / float64(l)
+		ans = append(ans, num)
+		queue = queue[l:]
 	}
 
 	return ans
