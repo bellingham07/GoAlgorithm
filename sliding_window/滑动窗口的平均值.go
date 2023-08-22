@@ -1,4 +1,4 @@
-package leetcode
+package sliding_window
 
 type MovingAverage struct {
 }

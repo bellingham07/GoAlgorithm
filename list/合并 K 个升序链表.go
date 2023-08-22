@@ -1,6 +1,14 @@
-package leetcode
+package list
 
-func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+func mergeKLists(lists []*ListNode) *ListNode {
+	var ans *ListNode = nil
+	for i := 0; i < len(lists); i++ {
+		ans = mergeTwoList(ans, lists[i])
+	}
+	return ans
+}
+
+func mergeTwoList(list1, list2 *ListNode) *ListNode {
 	if list1 == nil {
 		return list2
 	}
@@ -9,7 +17,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 
 	var res *ListNode
-	// res为空，会出现空指针
+	// 如果res为空，res.Next就是空指针
 	res = new(ListNode)
 	head := res
 

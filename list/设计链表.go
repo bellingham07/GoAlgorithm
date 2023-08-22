@@ -1,4 +1,4 @@
-package leetcode
+package list
 
 type MyLinkedList struct {
 	Size int

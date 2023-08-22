@@ -1,4 +1,4 @@
-package leetcode
+package sliding_window
 
 //https://leetcode.cn/problems/permutation-in-string/
 

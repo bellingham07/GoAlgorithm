@@ -1,4 +1,4 @@
-package leetcode
+package list
 
 func swapPairs(head *ListNode) *ListNode {
 	// 虚拟头节点

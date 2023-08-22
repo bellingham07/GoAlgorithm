@@ -1,4 +1,4 @@
-package leetcode
+package list
 
 // 找到链表中点，断开链表，反转第二个链表，分别合并两个链表
 func reorderList(head *ListNode) {

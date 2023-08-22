@@ -1,4 +1,4 @@
-package leetcode
+package list
 
 func detectCycle(head *ListNode) *ListNode {
 	slow, fast := head, head

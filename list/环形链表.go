@@ -1,4 +1,4 @@
-package leetcode
+package list
 
 func hasCycle(head *ListNode) bool {
 	// 确保初始节点不为空
