@@ -1,51 +1,34 @@
-/*
-可以引⼊的库和版本相关请参考 “环境说明”
-Please refer to the "Environmental Notes" for the libraries and versions that can be introduced.
-*/
-
 package main
 
-import (
-	"errors"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strconv"
-	"time"
-)
+import "fmt"
+
+func counter(out chan<- int) {
+	println("111111111")
+	for x := 0; x < 10; x++ {
+		out <- x
+	}
+	close(out)
+}
+
+func squarer(out chan<- int, in <-chan int) {
+	println("22222222")
+	for v := range in {
+		out <- v * v
+	}
+	close(out)
+}
+
+func printer(in <-chan int) {
+	println("33333333333333")
+	for v := range in {
+		fmt.Println(v)
+	}
+}
 
 func main() {
-	go create()
-	go listen()
-	time.Sleep(10 * time.Second)
-}
-
-func request() {
-	resp, err := http.Get("http://localhost:8080/add")
-	if err != nil {
-		errors.New("bad request")
-		return
-	}
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		errors.New("read fail")
-	}
-	fmt.Println("resp", string(body))
-}
-
-func create() {
-	http.HandleFunc("/add", func(w http.ResponseWriter, r *http.Request) {
-		valueStr := r.URL.Query().Get("value")
-		v, err := strconv.Atoi(valueStr)
-		if err != nil {
-			http.Error(w, "error", http.StatusBadRequest)
-			return
-		}
-		res := v + 1
-		fmt.Fprintf(w, "res:", res)
-	})
-}
-
-func listen() {
-	http.ListenAndServe(":8080", nil)
+	naturals := make(chan int)
+	squares := make(chan int)
+	go counter(naturals)
+	go squarer(squares, naturals)
+	printer(squares)
 }
