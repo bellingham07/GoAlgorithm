@@ -20,5 +20,26 @@ func TestTree(t *testing.T) {
 	root.Left.Left = NewNode(4)
 	root.Left.Right = NewNode(5)
 
-	fmt.Println(levelOrder2(root))
+	p := NewNode(4)
+	q := NewNode(5)
+
+	fmt.Println(lowestCommonAncestor(root, p, q).Val)
+}
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	for {
+		if root.Val > p.Val && root.Val > q.Val {
+			root = root.Left
+		}
+		if root.Val < p.Val && root.Val < q.Val {
+			root = root.Right
+		}
+		if (root.Val-p.Val)*(root.Val-q.Val) <= 0 {
+			return root
+		}
+	}
+	return root
 }
